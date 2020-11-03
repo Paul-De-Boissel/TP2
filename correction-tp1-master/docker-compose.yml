@@ -2,7 +2,7 @@ version: '3.3'
 services:
   backend:
     container_name: backend
-    build: ./simple-api
+    build: simple-api
     networks:
       - app-network
     depends_on:
@@ -11,7 +11,7 @@ services:
   database:
     container_name: database
     restart: always
-    build: ./database
+    build: database
     networks:
       - app-network
     env_file:
@@ -19,7 +19,7 @@ services:
 
   httpd:
     container_name: reverse_proxy
-    build: ./httpd
+    build: httpd
     ports:
       - "80:80"
     networks:
